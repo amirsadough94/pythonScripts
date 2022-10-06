@@ -6,7 +6,7 @@ def myAbs(data):
 
 
 def mySum(data1, data2):
-    return data1+data2
+    return data1 + data2
 
 
 def myMap(func, *data):
@@ -16,5 +16,12 @@ def myMap(func, *data):
     return result
 
 
+def myMapGenerator(func, *data):
+    return (func(*d) for d in zip(*data))
+
+
 print(myMap(myAbs, dataIn))
 print(myMap(mySum, dataIn, dataIn))
+
+print(list(myMapGenerator(myAbs, dataIn)))
+print(list(myMapGenerator(mySum, dataIn, dataIn)))
