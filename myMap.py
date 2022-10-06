@@ -20,8 +20,15 @@ def myMapGenerator(func, *data):
     return (func(*d) for d in zip(*data))
 
 
+def myMapList(func, *data):
+    return [func(*d) for d in zip(*data)]
+
+
 print(myMap(myAbs, dataIn))
 print(myMap(mySum, dataIn, dataIn))
 
 print(list(myMapGenerator(myAbs, dataIn)))
 print(list(myMapGenerator(mySum, dataIn, dataIn)))
+
+print(myMapList(myAbs, dataIn))
+print(myMapList(mySum, dataIn, dataIn))
