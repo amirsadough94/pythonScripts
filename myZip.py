@@ -19,4 +19,11 @@ def myPad(*input_data, **kargs):
     return res
 
 
-print(myPad(l1, l2, pad='?'))
+def myPad_gen(*input_data, **kargs):
+    pad = kargs.get("pad", None)
+    seq = [list(s) for s in input_data]
+    while any(seq):
+        yield tuple(s.pop(0) if s else pad for s in seq)
+
+
+print(list(myPad_gen(l1, l2, pad='?')))
